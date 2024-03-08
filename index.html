@@ -5,7 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .box {
+        border: 1px solid gray;
+        padding: 10px;
+        width: 300px;
+        resize: both;
+        /**触发频率**/
+        animation: resize 0.1s infinite paused forwards;
+      }
+
+      .box:active {
+        animation-play-state: running;
+      }
+
+      @keyframes resize {
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="ellipsis box">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </div>
+    <div id="result"></div>
+    <script src="./index.js"></script>
   </body>
 </html>
