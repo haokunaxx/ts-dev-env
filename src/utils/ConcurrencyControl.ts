@@ -72,7 +72,7 @@ export async function ConcurrencyControl(
     resolve: (...args: any[]) => any
     reject: (...args: any[]) => any
     reason?: any
-  }) => {
+  }): void => {
     if (retryTimes > maxRetryTimes) {
       result[index] = {
         type: 'failed',
