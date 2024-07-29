@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "parcel": "parcel index.html"
@@ -19,6 +20,8 @@
     "typescript": "^5.0.2"
   },
   "dependencies": {
+    "axios": "^1.7.2",
+    "jquery": "^3.7.1",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.2.1"
   }

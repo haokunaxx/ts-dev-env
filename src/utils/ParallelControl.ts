@@ -4,33 +4,33 @@ type ParallelControlFn = (
   maxRetryCount: number
 ) => Promise<any[]>;
 
-type HandlerFn = () => {};
+// type HandlerFn = () => {};
 
-const asyncTaskMaker = (
-  timer: number,
-  type: "resolve" | "reject",
-  info: any
-) => {
-  return () =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log(info);
-        // if(type === 'resolve'){
-        //     resolve(info);
-        // }else{
-        //     throw new Error(info)
-        // }
-        type === "resolve" ? resolve(info) : reject(info);
-      }, timer);
-    });
-};
+// const asyncTaskMaker = (
+//   timer: number,
+//   type: "resolve" | "reject",
+//   info: any
+// ) => {
+//   return () =>
+//     new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         console.log(info);
+//         // if(type === 'resolve'){
+//         //     resolve(info);
+//         // }else{
+//         //     throw new Error(info)
+//         // }
+//         type === "resolve" ? resolve(info) : reject(info);
+//       }, timer);
+//     });
+// };
 
-const fn1 = asyncTaskMaker(2000, "resolve", "fn1 result"),
-  fn2 = asyncTaskMaker(3000, "resolve", "fn2 result"),
-  fn3 = asyncTaskMaker(2000, "reject", "fn3 result"),
-  fn4 = asyncTaskMaker(4000, "resolve", "fn4 result"),
-  fn5 = asyncTaskMaker(2000, "resolve", "fn5 result"),
-  fn6 = asyncTaskMaker(2000, "resolve", "fn6 result");
+// const fn1 = asyncTaskMaker(2000, "resolve", "fn1 result"),
+//   fn2 = asyncTaskMaker(3000, "resolve", "fn2 result"),
+//   fn3 = asyncTaskMaker(2000, "reject", "fn3 result"),
+//   fn4 = asyncTaskMaker(4000, "resolve", "fn4 result"),
+//   fn5 = asyncTaskMaker(2000, "resolve", "fn5 result"),
+//   fn6 = asyncTaskMaker(2000, "resolve", "fn6 result");
 
 /*
     1s      2s      3s      4s      5s      6s      7s      8s      9s      10
@@ -38,7 +38,7 @@ const fn1 = asyncTaskMaker(2000, "resolve", "fn1 result"),
                     fn2,                            fn4,            fn5,
 */
 
-const ParallelControl: ParallelControlFn = async (
+const ParallelControl1: ParallelControlFn = async (
   fns,
   parallelCount,
   maxRetryCount
@@ -101,9 +101,14 @@ const ParallelControl: ParallelControlFn = async (
   return result;
 };
 
-const init = async () => {
-  const res = await ParallelControl([fn1, fn2, fn3, fn4, fn5, fn6], 2, 2);
-  console.log("---", res);
-};
+// const init = async () => {
+//   const res = await ParallelControl([fn1, fn2, fn3, fn4, fn5, fn6], 2, 2);
+//   console.log("---", res);
+// };
 
-init();
+// init();
+export {
+  ParallelControl1
+}
+
+module.exports = ParallelControl1
