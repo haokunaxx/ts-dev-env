@@ -43,6 +43,29 @@ function lengthOfLIS(nums: number[]): number {
   // return max
   return Math.max(...arr)
 }
+
+
+// function lengthOfLIS(nums: number[]): number {
+//   const len = nums.length
+//   const dp: number[] = [...Array(len)].fill(1)
+//   let i = len - 2
+//   let max = 1
+//   for (; i >= 0; i--) {
+//     let j = i + 1
+//     while (j < len) {
+//       if (nums[i] < nums[j]) {
+//         dp[i] = Math.max(dp[j] + 1, dp[i])
+//         if(dp[i] > max){
+//           break;
+//         }
+//       }
+//       j++
+//     }
+//     max = Math.max(dp[i], max)
+//   }
+//   return max
+// }
+
 console.time()
 console.log(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]))
 console.log(lengthOfLIS([0,1,0,3,2,3]))
